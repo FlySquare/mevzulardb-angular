@@ -1,0 +1,178 @@
+.content{
+  @media only screen and (max-width: 767px) {
+    .mobile-filter{
+      display: flex!important;
+    }
+    .mobile-clear-filter{
+      display: flex!important;
+    }
+    .clearFilter{
+      display: none!important;
+    }
+    .other-filters{
+      display: none!important;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .mobile-other-filters{
+      display: none!important;
+    }
+  }
+  .mobile-other-filters{
+    display: none;
+    flex-direction: column;
+    border-radius: 8px;
+    margin: 10px 0 0 0;
+    padding: 10px 0 10px 0;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background: white;
+  }
+  .filters{
+    .mobile-filter{
+      width: 38px;
+      background: white;
+      border-radius: 50px;
+      display: none;
+      margin-left: 20px;
+      height: 38px;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .mobile-clear-filter{
+      i{
+        color: red;
+      }
+      width: 38px;
+      background: white;
+      border-radius: 50px;
+      display: none;
+      margin-left: 20px;
+      height: 38px;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .clearFilter{
+      div{
+        color: red;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+      }
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .input{
+      input{
+        width: 100%;
+      }
+      width: 500px;
+    }
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .main{
+    .card{
+      height: 235px;
+    }
+    .other-filters{
+      .speakers{
+        .speaker-filter{
+          span{
+            margin-left: 5px;
+          }
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-content: center;
+          justify-content: flex-start;
+          align-items: center;
+        }
+        background: white;
+        border-radius: 10px;
+        padding: 15px;
+      }
+      .parties{
+        .party-filter{
+          span{
+            margin-left: 5px;
+          }
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-content: center;
+          justify-content: flex-start;
+          align-items: center;
+        }
+        margin-top: 20px;
+        background: white;
+        border-radius: 10px;
+        padding: 15px;
+      }
+    }
+
+  }
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  padding: 0 30px 10px 30px;
+  align-items: stretch;
+}
+.mobile-other-filters{
+  .speakers{
+    .speaker-filter{
+      span{
+        margin-left: 5px;
+      }
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+  .parties{
+    .party-filter{
+      span{
+        margin-left: 5px;
+      }
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    margin-top: 20px;
+  }
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+}

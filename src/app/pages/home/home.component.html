@@ -1,0 +1,99 @@
+<div class="content">
+  <div class="filters">
+    <div class="input">
+      <input type="text" placeholder="Soru Arayabilirsiniz.." class="form-control" (keyup)="searchQuestion($event)"
+             [(ngModel)]="searchString">
+    </div>
+    <div class="mobile-filter">
+      <i (click)="openMobileFilter()" class="fa fa-filter"></i>
+    </div>
+    <div *ngIf="searchString?.length > 0 || searchParties?.length > 0 || searchSpeakers?.length > 0"  class="mobile-clear-filter">
+      <i (click)="clearFilter()" class="fa fa-trash-o"></i>
+    </div>
+    <div *ngIf="searchString?.length > 0 || searchParties?.length > 0 || searchSpeakers?.length > 0" class="clearFilter">
+      <div (click)="clearFilter()">
+        <i class="fa fa-times"></i>
+        <span style="margin-left: 5px">Filtreyi Temizle</span>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-other-filters col-12">
+    <div class="speakers">
+      <h4>Konuşmacılar</h4>
+      <div *ngFor="let speaker of speakers" class="speaker-filter">
+        <input (click)="searchSpeaker(speaker)" [checked]="speaker.selected" class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+        <span>{{ speaker.name }}</span>
+      </div>
+    </div>
+    <div class="parties">
+      <h4>Partiler</h4>
+      <div *ngFor="let party of parties" class="party-filter">
+        <input (click)="searchParty(party)" [checked]="party.selected" class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+        <span>{{ party.name }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="main row">
+    <div class="questions col-12 col-md-9">
+      <h3>Sorular</h3>
+      <div class="row">
+        <div style="margin: 10px 0 10px 0" *ngFor="let question of questions" class="col-12 col-sm-6 col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">#{{ question.id }} - Soran: <span>{{ question.questioner }}</span></h5>
+              <h6 class="card-title">Cevaplayan: <span style="color: #ff6a00">{{ question.speaker.name }}</span></h6>
+              <p class="card-text">{{ question.question.length > 75 ? question.question.substring(0,75)+'...' : question.question }}</p>
+              <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="playVideo(question)"
+                      class="btn btn-primary">Cevabı Gör
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="other-filters col-12 col-md-3">
+      <h3>Filtrele</h3>
+      <div class="speakers">
+        <h4>Konuşmacılar</h4>
+        <div *ngFor="let speaker of speakers" class="speaker-filter">
+          <input (click)="searchSpeaker(speaker)" [checked]="speaker.selected" class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+          <span>{{ speaker.name }}</span>
+        </div>
+      </div>
+      <div class="parties">
+        <h4>Partiler</h4>
+        <div *ngFor="let party of parties" class="party-filter">
+          <input (click)="searchParty(party)" [checked]="party.selected" class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+          <span>{{ party.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">#{{ selectedQuestion?.id }} numaralı soru cevabı:</h1>
+        <button (click)="clearSelected()" type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5>Soru:</h5>
+        <p>{{ selectedQuestion?.question }}</p>
+        <h5>Cevap:</h5>
+        <iframe width="100%" height="315" [src]="selectedVideo" [title]="selectedQuestion?.question" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="clearSelected()" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

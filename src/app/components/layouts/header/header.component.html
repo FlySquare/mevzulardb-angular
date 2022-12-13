@@ -1,0 +1,28 @@
+<div class="header">
+  <div class="logo">
+    <a routerLink="home">
+      <img src="assets/images/white-logo-babala.png" alt="babala-logo">
+    </a>
+  </div>
+  <div class="menus">
+    <a routerLink="home">Veriler</a>
+    <a href="https://www.youtube.com/@BaBaLaTV" target="_blank">Youtube</a>
+    <a href="https://twitter.com/BabalaTv" target="_blank">Twitter</a>
+    <a href="https://www.instagram.com/babalativi/" target="_blank">Instagram</a>
+    <a routerLink="about-developer">Geliştirici</a>
+  </div>
+  <div class="mobile-menus">
+    <i (click)="openMobileMenu()" class="fa fa-bars"></i>
+  </div>
+</div>
+<div class="mobile-menu">
+  <a (click)="closeMobileMenu()" style="margin-top: 20px" routerLink="home">Veriler</a>
+  <div class="hr"></div>
+  <a href="https://www.youtube.com/@BaBaLaTV" target="_blank">Youtube</a>
+  <div class="hr"></div>
+  <a href="https://twitter.com/BabalaTv" target="_blank">Twitter</a>
+  <div class="hr"></div>
+  <a href="https://www.instagram.com/babalativi/" target="_blank">Instagram</a>
+  <div class="hr"></div>
+  <a (click)="closeMobileMenu()" style="margin-bottom: 20px" routerLink="about-developer">Geliştirici</a>
+</div>
